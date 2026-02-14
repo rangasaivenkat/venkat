@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day, Dhanya! 💕</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --pink: #FFB3D9;
+            --light-pink: #FFE0F0;
+            --dark-pink: #FF85C0;
+            --purple: #D4A5FF;
+            --blue: #A5D8FF;
+            --cream: #FFF8F0;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background: linear-gradient(135deg, var(--light-pink) 0%, var(--blue) 50%, var(--purple) 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><text y="20" font-size="20">💕</text></svg>'), auto;
+        }
+
+        /* Floating hearts background */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            animation: float-up 8s infinite;
+            opacity: 0;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main container */
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header section */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: bounce-in 1s ease-out;
+        }
+
+        @keyframes bounce-in {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            color: var(--white);
+            text-shadow: 4px 4px 0px var(--dark-pink),
+                         8px 8px 0px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.3rem;
+            color: var(--white);
+            font-family: 'Patrick Hand', cursive;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* Bubu and Dudu characters */
+        .characters {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin: 50px 0;
+            position: relative;
+        }
+
+        .character {
+            text-align: center;
+            animation: float 3s ease-in-out infinite;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .character:hover {
+            transform: scale(1.1) !important;
+        }
+
+        .character:nth-child(2) {
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .character-icon {
+            font-size: 120px;
+            display: block;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.15));
+        }
+
+        .character-name {
+            font-size: 1.8rem;
+            color: var(--white);
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .heart-connector {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            animation: pulse 1.5s ease-in-out infinite;
+            filter: drop-shadow(0 5px 10px rgba(255, 0, 100, 0.3));
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.3);
+            }
+        }
+
+        /* Content cards */
+        .card {
+            background: var(--white);
+            border-radius: 30px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            animation: slide-up 0.8s ease-out;
+            border: 5px solid var(--pink);
+        }
+
+        @keyframes slide-up {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card h2 {
+            font-size: 2.2rem;
+            color: var(--dark-pink);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .card h2 span {
+            font-size: 2rem;
+        }
+
+        .love-message {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: center;
+            font-family: 'Patrick Hand', cursive;
+        }
+
+        /* Interactive buttons */
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .interactive-btn {
+            background: linear-gradient(135deg, var(--pink), var(--purple));
+            border: none;
+            border-radius: 20px;
+            padding: 25px;
+            font-size: 1.3rem;
+            color: var(--white);
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interactive-btn:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .interactive-btn:hover:before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .interactive-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 105, 180, 0.5);
+        }
+
+        .interactive-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Question section */
+        .question-box {
+            background: linear-gradient(135deg, var(--light-pink), var(--cream));
+            border-radius: 25px;
+            padding: 35px;
+            margin: 30px 0;
+            border: 4px dashed var(--dark-pink);
+            animation: wiggle 2s ease-in-out infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(1deg); }
+            75% { transform: rotate(-1deg); }
+        }
+
+        .question-box h3 {
+            font-size: 1.8rem;
+            color: var(--dark-pink);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .question-option {
+            background: var(--white);
+            border: 3px solid var(--pink);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .question-option:hover {
+            background: var(--pink);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+
+        .question-option.selected {
+            background: var(--dark-pink);
+            color: var(--white);
+            border-color: var(--dark-pink);
+        }
+
+        /* Response area */
+        .response {
+            background: var(--cream);
+            border-radius: 20px;
+            padding: 25px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--dark-pink);
+            font-family: 'Patrick Hand', cursive;
+            display: none;
+            animation: fade-in 0.5s ease;
+        }
+
+        .response.show {
+            display: block;
+        }
+
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Memory lane */
+        .memory-lane {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .memory-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            border: 3px solid var(--purple);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .memory-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 15px 40px rgba(212, 165, 255, 0.4);
+        }
+
+        .memory-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .memory-text {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Love counter */
+        .love-counter {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, var(--purple), var(--pink));
+            border-radius: 25px;
+            color: var(--white);
+            margin: 30px 0;
+        }
+
+        .love-counter h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .counter-number {
+            font-size: 5rem;
+            font-weight: 700;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.2);
+            animation: count-up 3s ease-out;
+        }
+
+        @keyframes count-up {
+            from {
+                transform: scale(0) rotate(0deg);
+            }
+            to {
+                transform: scale(1) rotate(360deg);
+            }
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--white);
+            font-size: 1.3rem;
+            font-family: 'Patrick Hand', cursive;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        /* Special effects */
+        .sparkle {
+            display: inline-block;
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(1.2);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .characters {
+                gap: 20px;
+            }
+            
+            .character-icon {
+                font-size: 80px;
+            }
+            
+            .button-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .counter-number {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating hearts background -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Happy Valentine's Day, Dhanya! 💖</h1>
+            <p>From your Venkat, with all my love...</p>
+        </div>
+
+        <!-- Bubu and Dudu Characters -->
+        <div class="characters">
+            <div class="character" onclick="characterTalk('bubu')">
+                <span class="character-icon">🐻</span>
+                <div class="character-name">Bubu (Venkat)</div>
+            </div>
+            <div class="heart-connector">💗</div>
+            <div class="character" onclick="characterTalk('dudu')">
+                <span class="character-icon">🐰</span>
+                <div class="character-name">Dudu (Dhanya)</div>
+            </div>
+        </div>
+
+        <!-- Love Message -->
+        <div class="card">
+            <h2><span>💌</span> A Message From Venkat's Heart</h2>
+            <p class="love-message">
+                Dear Dhanya, just like Bubu and Dudu, we're the perfect pair! 
+                You bring sweetness to my every day, laughter to my soul, 
+                and endless love to my heart. This Valentine's Day, 
+                I want you to know that you're my favorite everything! 
+                <span class="sparkle">✨</span>
+            </p>
+        </div>
+
+        <!-- Interactive Buttons -->
+        <div class="card">
+            <h2><span>🎮</span> Let's Play!</h2>
+            <div class="button-grid">
+                <button class="interactive-btn" onclick="showSurprise()">
+                    <span>💝 Click for a Surprise!</span>
+                </button>
+                <button class="interactive-btn" onclick="generateCompliment()">
+                    <span>🌟 Get a Compliment</span>
+                </button>
+                <button class="interactive-btn" onclick="showLoveReason()">
+                    <span>💕 Why I Love You</span>
+                </button>
+                <button class="interactive-btn" onclick="createHeartExplosion()">
+                    <span>💖 Heart Explosion!</span>
+                </button>
+            </div>
+            <div class="response" id="responseBox"></div>
+        </div>
+
+        <!-- Love Counter -->
+        <div class="love-counter">
+            <h3>Days Venkat has been loving Dhanya ❤️</h3>
+            <div class="counter-number" id="loveCounter">∞</div>
+            <p style="margin-top: 20px; font-size: 1.2rem;">...and counting forever!</p>
+        </div>
+
+        <!-- Cute Questions -->
+        <div class="card">
+            <h2><span>🎯</span> Venkat Wants to Know More About Dhanya!</h2>
+            
+            <div class="question-box">
+                <h3>Dhanya, what would be your perfect date with Venkat?</h3>
+                <div class="question-option" onclick="selectOption(this, 'Cozy movie night at home with cuddles! 🎬')">
+                    Cozy movie night at home with cuddles! 🎬
+                </div>
+                <div class="question-option" onclick="selectOption(this, 'Adventure outdoors - hiking or exploring! 🌲')">
+                    Adventure outdoors - hiking or exploring! 🌲
+                </div>
+                <div class="question-option" onclick="selectOption(this, 'Romantic dinner under the stars! 🌟')">
+                    Romantic dinner under the stars! 🌟
+                </div>
+                <div class="question-option" onclick="selectOption(this, 'Fun day at an amusement park! 🎡')">
+                    Fun day at an amusement park! 🎡
+                </div>
+            </div>
+
+            <div class="question-box">
+                <h3>If we were cartoon characters, what would we be doing right now?</h3>
+                <div class="question-option" onclick="selectOption(this, 'Flying on a magic carpet! ✨')">
+                    Flying on a magic carpet! ✨
+                </div>
+                <div class="question-option" onclick="selectOption(this, 'Having a picnic in a flower field! 🌸')">
+                    Having a picnic in a flower field! 🌸
+                </div>
+                <div class="question-option" onclick="selectOption(this, 'Dancing in the rain! 🌧️')">
+                    Dancing in the rain! 🌧️
+                </div>
+                <div class="question-option" onclick="selectOption(this, 'Building a blanket fort! 🏰')">
+                    Building a blanket fort! 🏰
+                </div>
+            </div>
+
+            <div class="question-box">
+                <h3>What's your favorite thing about us?</h3>
+                <div class="question-option" onclick="selectOption(this, 'How we can be silly together! 😄')">
+                    How we can be silly together! 😄
+                </div>
+                <div class="question-option" onclick="selectOption(this, 'Our deep conversations! 💭')">
+                    Our deep conversations! 💭
+                </div>
+                <div class="question-option" onclick="selectOption(this, 'How we make each other laugh! 😂')">
+                    How we make each other laugh! 😂
+                </div>
+                <div class="question-option" onclick="selectOption(this, 'The comfort and warmth we share! 🤗')">
+                    The comfort and warmth we share! 🤗
+                </div>
+            </div>
+        </div>
+
+        <!-- Memory Lane -->
+        <div class="card">
+            <h2><span>📸</span> Venkat & Dhanya's Special Moments</h2>
+            <div class="memory-lane">
+                <div class="memory-card" onclick="showMemory('first')">
+                    <div class="memory-icon">🌟</div>
+                    <div class="memory-text">First Meet</div>
+                </div>
+                <div class="memory-card" onclick="showMemory('laugh')">
+                    <div class="memory-icon">😂</div>
+                    <div class="memory-text">Best Laughs</div>
+                </div>
+                <div class="memory-card" onclick="showMemory('adventure')">
+                    <div class="memory-icon">🗺️</div>
+                    <div class="memory-text">Adventures</div>
+                </div>
+                <div class="memory-card" onclick="showMemory('cozy')">
+                    <div class="memory-icon">☕</div>
+                    <div class="memory-text">Cozy Times</div>
+                </div>
+            </div>
+            <div class="response" id="memoryResponse"></div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>You make every day feel like Valentine's Day! 💕</p>
+            <p style="margin-top: 15px; font-size: 2rem;">I love you to the moon and back! 🌙✨</p>
+        </div>
+    </div>
+
+    <script>
+        // Create floating hearts
+        function createFloatingHearts() {
+            const container = document.getElementById('floatingHearts');
+            const hearts = ['💕', '💖', '💗', '💝', '💘', '❤️', '🩷'];
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                container.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 8000);
+            }, 500);
+        }
+
+        createFloatingHearts();
+
+        // Character interactions
+        function characterTalk(character) {
+            const messages = {
+                bubu: [
+                    "Bubu (Venkat) says: Dhanya, you're my favorite human! 🐻💕",
+                    "Bubu (Venkat) thinks: This love is un-bear-ably sweet! 🐻❤️",
+                    "Bubu (Venkat) whispers: Dhanya, you make my heart go boom boom! 🐻💗"
+                ],
+                dudu: [
+                    "Dudu (Dhanya) says: Venkat, somebunny loves you so much! 🐰💖",
+                    "Dudu (Dhanya) thinks: You're ear-resistible, Venkat! 🐰✨",
+                    "Dudu (Dhanya) giggles: Hop into my heart forever! 🐰💕"
+                ]
+            };
+            
+            const randomMsg = messages[character][Math.floor(Math.random() * messages[character].length)];
+            showResponse(randomMsg);
+        }
+
+        // Interactive buttons
+        function showSurprise() {
+            const surprises = [
+                "🎁 Surprise! You're getting infinite hugs today!",
+                "🌈 Surprise! You're my pot of gold!",
+                "🎉 Surprise! Every moment with you is a celebration!",
+                "💫 Surprise! You make my world sparkle!"
+            ];
+            showResponse(surprises[Math.floor(Math.random() * surprises.length)]);
+        }
+
+        function generateCompliment() {
+            const compliments = [
+                "Your smile lights up my entire universe! 🌟",
+                "You're sweeter than all the candy in the world! 🍬",
+                "Your laugh is my favorite melody! 🎵",
+                "You're the most beautiful person inside and out! 💖",
+                "Being with you feels like a dream come true! ✨",
+                "You make ordinary moments extraordinary! 🌈"
+            ];
+            showResponse(compliments[Math.floor(Math.random() * compliments.length)]);
+        }
+
+        function showLoveReason() {
+            const reasons = [
+                "I love how you make me laugh even on tough days! 😊",
+                "I love the way you understand me without words! 💭",
+                "I love your kindness and beautiful heart! 💕",
+                "I love how every moment with you is special! ✨",
+                "I love your quirks and everything that makes you, YOU! 🌟"
+            ];
+            showResponse(reasons[Math.floor(Math.random() * reasons.length)]);
+        }
+
+        function createHeartExplosion() {
+            showResponse("💥 HEART EXPLOSION! 💥");
+            const container = document.getElementById('floatingHearts');
+            
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart';
+                    heart.textContent = '💖';
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.animationDuration = '2s';
+                    heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+                    container.appendChild(heart);
+                    
+                    setTimeout(() => heart.remove(), 2000);
+                }, i * 50);
+            }
+        }
+
+        function showResponse(message) {
+            const responseBox = document.getElementById('responseBox');
+            responseBox.textContent = message;
+            responseBox.classList.add('show');
+            
+            setTimeout(() => {
+                responseBox.classList.remove('show');
+            }, 4000);
+        }
+
+        // Question selection
+        function selectOption(element, text) {
+            // Remove previous selection in the same question box
+            const siblings = element.parentElement.querySelectorAll('.question-option');
+            siblings.forEach(sib => sib.classList.remove('selected'));
+            
+            // Add selection to clicked option
+            element.classList.add('selected');
+            
+            const responses = {
+                'Cozy movie night at home with cuddles! 🎬': "Perfect! I'll bring the popcorn and you bring the cuddles! 🍿💕",
+                'Adventure outdoors - hiking or exploring! 🌲': "Yes! Let's explore the world together, hand in hand! 🌍❤️",
+                'Romantic dinner under the stars! 🌟': "Dreamy! You, me, and a sky full of stars! ✨💖",
+                'Fun day at an amusement park! 🎡': "Woohoo! Roller coasters and cotton candy with you! 🎢🍭",
+                'Flying on a magic carpet! ✨': "Aladdin vibes! A whole new world with you! 🧞‍♂️💕",
+                'Having a picnic in a flower field! 🌸': "So romantic! Flowers can't compete with your beauty! 🌺❤️",
+                'Dancing in the rain! 🌧️': "Singing in the Rain 2.0! Let's make it our own movie! 🎬💗",
+                'Building a blanket fort! 🏰': "Our own little castle of love! No grown-ups allowed! 🏰👑",
+                'How we can be silly together! 😄': "Being goofy with you is my favorite thing ever! 🤪💕",
+                'Our deep conversations! 💭': "I love how we connect on every level! Mind, heart, and soul! 💫",
+                'How we make each other laugh! 😂': "Your laugh is the best sound in the world! 😊🎵",
+                'The comfort and warmth we share! 🤗': "You're my safe place, my home! 🏡💖"
+            };
+            
+            showResponse(responses[text] || "Great choice! 💖");
+        }
+
+        // Memory responses
+        function showMemory(type) {
+            const memories = {
+                first: "Remember when we first met? My heart knew right away you were special! 💫",
+                laugh: "All those times you made me laugh until my stomach hurt - priceless! 😂❤️",
+                adventure: "Every adventure with you is my favorite adventure! 🗺️💕",
+                cozy: "Those quiet, cozy moments with you are what dreams are made of! ☕✨"
+            };
+            
+            const memoryBox = document.getElementById('memoryResponse');
+            memoryBox.textContent = memories[type];
+            memoryBox.classList.add('show');
+            
+            setTimeout(() => {
+                memoryBox.classList.remove('show');
+            }, 5000);
+        }
+
+        // Animate love counter
+        function animateLoveCounter() {
+            const counter = document.getElementById('loveCounter');
+            let count = 0;
+            const target = Math.floor(Math.random() * 1000) + 365;
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            
+            const timer = setInterval(() => {
+                count += increment;
+                if (count >= target) {
+                    counter.textContent = '∞';
+                    clearInterval(timer);
+                } else {
+                    counter.textContent = Math.floor(count);
+                }
+            }, 16);
+        }
+
+        // Start counter animation on load
+        setTimeout(animateLoveCounter, 500);
+
+        // Add click effect to whole page
+        document.addEventListener('click', (e) => {
+            const heart = document.createElement('div');
+            heart.textContent = '💖';
+            heart.style.position = 'fixed';
+            heart.style.left = e.clientX + 'px';
+            heart.style.top = e.clientY + 'px';
+            heart.style.fontSize = '30px';
+            heart.style.pointerEvents = 'none';
+            heart.style.zIndex = '9999';
+            heart.style.animation = 'float-up 2s ease-out forwards';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => heart.remove(), 2000);
+        });
+    </script>
+</body>
+</html>
